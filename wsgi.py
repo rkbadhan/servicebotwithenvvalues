@@ -143,10 +143,10 @@ def send_message(text, chat_id, reply_markup=None):
 def start():
     print("In Start")
     t_end = time.time() + 25
-    #db.db_connect()()
+    #db.db_connect()
     db.setup()
     last_update_id = None
-    while True:
+    while time.time() < t_end:
         updates = get_updates(last_update_id)
         if len(updates["result"]) > 0:
             last_update_id = get_last_update_id(updates) + 1
